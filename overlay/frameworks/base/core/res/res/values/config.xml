@@ -32,9 +32,6 @@
          that can be set by the user. -->
     <integer name="config_screenBrightnessDim">10</integer>
 
-    <!-- Enable auto brightness while Dozing -->
-    <bool name="config_allowAutoBrightnessWhileDozing">true</bool>
-
      <!-- If we allow automatic adjustment of screen brightness while dozing, how many times we want
           to reduce it to preserve the battery. Value of 100% means no scaling. -->
      <fraction name="config_screenAutoBrightnessDozeScaleFactor">200%</fraction>
@@ -309,5 +306,25 @@
 
     <!-- Enable system navigation keys. -->
     <bool name="config_supportSystemNavigationKeys">true</bool>
+
+    <!-- If true, the display will be shifted around in ambient mode. -->
+    <bool name="config_enableBurnInProtection">true</bool>
+
+    <!-- Whether or not swipe up gesture's opt-in setting is available on this device -->
+    <bool name="config_swipe_up_gesture_setting_available">true</bool>
+
+    <!-- Allow automatic adjusting of the screen brightness while dozing in low power state. -->
+    <bool name="config_allowAutoBrightnessWhileDozing">true</bool>
+
+    <!-- When the screen is turned on, the previous estimate of the ambient light level at the time
+         the screen was turned off is restored and is used to determine the initial screen
+         brightness.
+         If this flag is true, then the ambient light level estimate will be promptly recomputed
+         after the warm-up interface and the screen brightness will be adjusted immediately.
+         If this flag is false, then the ambient light level estimate will be adjusted more
+         gradually in the same manner that normally happens when the screen is on according to the
+         brightening or dimming debounce thresholds.  As a result, it may take somewhat longer to
+         adapt to the environment.  This mode may be better suited for watches. -->
+    <bool name="config_autoBrightnessResetAmbientLuxAfterWarmUp">true</bool>
 
 </resources>

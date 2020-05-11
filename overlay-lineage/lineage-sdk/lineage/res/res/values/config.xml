@@ -59,6 +59,6 @@
     <integer name="config_deviceLightCapabilities" translatable="false">107</integer>
 
     <!-- BurnIn protection. This should be enabled on devices that have OLED displays -->
-    <bool name="config_enableBurnInProtection">false</bool>
+    <bool name="config_enableBurnInProtection">true</bool>
 
 </resources>
