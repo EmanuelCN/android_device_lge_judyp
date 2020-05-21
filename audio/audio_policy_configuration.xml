@@ -346,6 +346,10 @@
                        sources="primary output,deep_buffer,direct_pcm,compressed_offload,voip_rx,incall_music"/>
                 <route type="mix" sink="BT SCO Car Kit"
                        sources="primary output,deep_buffer,direct_pcm,compressed_offload,voip_rx,incall_music"/>
+                <route type="mix" sink="USB Device Out"
+                       sources="primary output,deep_buffer,direct_pcm,compressed_offload,voip_rx,mmap_no_irq_out,hifi_playback"/>
+                <route type="mix" sink="USB Headset Out"
+                       sources="primary output,deep_buffer,direct_pcm,compressed_offload,voip_rx,mmap_no_irq_out,hifi_playback"/>
                 <route type="mix" sink="Telephony Tx"
                        sources="voice_tx"/>
                 <route type="mix" sink="primary input"
