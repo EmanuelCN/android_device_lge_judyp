@@ -1,31 +1,11 @@
 # Audio
-vendor/etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb
-vendor/etc/acdbdata/QRD/QRD_Codec_cal.acdb
-vendor/etc/acdbdata/QRD/QRD_General_cal.acdb
-vendor/etc/acdbdata/QRD/QRD_Global_cal.acdb
-vendor/etc/acdbdata/QRD/QRD_Handset_cal.acdb
-vendor/etc/acdbdata/QRD/QRD_Hdmi_cal.acdb
-vendor/etc/acdbdata/QRD/QRD_Headset_cal.acdb
-vendor/etc/acdbdata/QRD/QRD_Speaker_cal.acdb
-vendor/etc/acdbdata/QRD/QRD_workspaceFile.qwsp
-
-vendor/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_Codec_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_General_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_Global_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_Handset_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_Headset_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_workspaceFile.qwsp
-
-vendor/etc/acdbdata/v1/General_cal.acdb
-vendor/etc/acdbdata/v1/Global_cal.acdb
-vendor/etc/acdbdata/v1/Bluetooth_cal.acdb
-vendor/etc/acdbdata/v1/Headset_cal.acdb
-vendor/etc/acdbdata/v1/Hdmi_cal.acdb
-vendor/etc/acdbdata/v1/Codec_cal.acdb
-vendor/etc/acdbdata/v1/Speaker_cal.acdb
+vendor/etc/acdbdata/v1/General_cal.acdb 
+vendor/etc/acdbdata/v1/Global_cal.acdb 
+vendor/etc/acdbdata/v1/Bluetooth_cal.acdb 
+vendor/etc/acdbdata/v1/Headset_cal.acdb 
+vendor/etc/acdbdata/v1/Hdmi_cal.acdb 
+vendor/etc/acdbdata/v1/Codec_cal.acdb 
+vendor/etc/acdbdata/v1/Speaker_cal.acdb 
 vendor/etc/acdbdata/v1/Handset_cal.acdb
 
 vendor/etc/acdbdata/General_cal.acdb
@@ -134,8 +114,6 @@ vendor/lib/liblgawb_main.so
 vendor/lib/libcom.qti.chinodeutils.so
 vendor/lib/lib.com.lge.elvis.so
 vendor/lib/lib_wdr2.so
-
-vendor/etc/camera/wb_graph_imx351.pb
 
 # Camera - components
 vendor/lib/camera/components/com.lge.node.camerasolution.so
@@ -421,6 +399,9 @@ vendor/etc/wifi/NA_GSM/bdwlan.bin
 vendor/etc/wifi/NA_GSM/bdwlan_ch0.bin
 vendor/etc/wifi/NA_GSM/bdwlan_ch1.bin
 
+# OpenGL
+vendor/etc/permissions/android.hardware.opengles.aep.xml
+
 # Wifi
 vendor/bin/hw/wlan_ril
 vendor/bin/cnss-daemon
@@ -643,6 +624,11 @@ vendor/etc/sensors/registry/registry/sensors_registry
 vendor/etc/sensors/registry/registry/sensors_settings
 vendor/etc/sensors/registry/sns_reg_config
 vendor/etc/sensors/sns_reg_config
+
+# Vulkan
+vendor/etc/permissions/android.hardware.vulkan.compute-0.xml
+vendor/etc/permissions/android.hardware.vulkan.level-1.xml
+vendor/etc/permissions/android.hardware.vulkan.version-1_1.xml
 
 #ZRAM
 
