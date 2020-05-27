@@ -89,4 +89,7 @@
          config to 7. -->
     <integer name="config_deviceHardwareKeys">72</integer>
 
+    <!-- Whether device has a notch -->
+    <bool name="config_haveNotch">true</bool>
+
 </resources>
