@@ -48,7 +48,7 @@
          LIGHTS_ADJUSTABLE_BATTERY_LED_BRIGHTNESS = 128
          For example, a device with notification and battery lights that supports
          pulsating and RGB control would set this config to 75. -->
-    <integer name="config_deviceLightCapabilities">107</integer>
+    <integer name="config_deviceLightCapabilities">238</integer>
 
     <!-- Whether device has screen with higher aspect ratio -->
     <bool name="config_haveHigherAspectRatioScreen">true</bool>
@@ -67,6 +67,9 @@
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveBatteryLed">true</bool>
+
+    <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
+    <bool name="config_intrusiveNotificationLed">true</bool>
 
     <!-- Does the battery LED support multiple colors?
          Used to decide if the user can change the colors -->
