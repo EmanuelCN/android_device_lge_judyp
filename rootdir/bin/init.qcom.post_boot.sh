@@ -3585,23 +3585,16 @@ case "$target" in
 	echo 1 > /proc/sys/kernel/sched_walt_rotate_big_tasks
 
 	# configure governor settings for little cluster
-	echo "blu_schedutil" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-	echo 500 > /sys/devices/system/cpu/cpu0/cpufreq/blu_schedutil/up_rate_limit_us
-	echo 2000 > /sys/devices/system/cpu/cpu0/cpufreq/blu_schedutil/down_rate_limit_us
-	echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/blu_schedutil/hispeed_freq
-	echo 90 > /sys/devices/system/cpu/cpu0/cpufreq/blu_schedutil/hispeed_load
-	echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/blu_schedutil/iowait_boost_enable
-	echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/blu_schedutil/pl
-        echo 576000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+	echo "Runutil" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+	echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/Runutil/hispeed_freq
+	echo 90 > /sys/devices/system/cpu/cpu0/cpufreq/Runutil/hispeed_load
+	echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/Runutil/iowait_boost_enable
 
 	# configure governor settings for big cluster
-	echo "blu_schedutil" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
-	echo 500 > /sys/devices/system/cpu/cpu4/cpufreq/blu_schedutil/up_rate_limit_us
-	echo 2000 > /sys/devices/system/cpu/cpu4/cpufreq/blu_schedutil/down_rate_limit_us
-	echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/blu_schedutil/hispeed_freq
-	echo 90 > /sys/devices/system/cpu/cpu4/cpufreq/blu_schedutil/hispeed_load
-	echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/blu_schedutil/iowait_boost_enable
-	echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/blu_schedutil/pl
+	echo "Runutil" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+	echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/Runutil/hispeed_freq
+	echo 90 > /sys/devices/system/cpu/cpu4/cpufreq/Runutil/hispeed_load
+	echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/Runutil/iowait_boost_enable
 	echo "0:1766400 4:1056000" > /sys/module/cpu_boost/parameters/input_boost_freq
 	echo "0:1766400 4:902400" > /sys/module/cpu_boost/parameters/sub_boost_freq
 	echo 80 > /sys/module/cpu_boost/parameters/input_boost_ms
