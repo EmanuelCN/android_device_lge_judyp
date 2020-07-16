@@ -3588,13 +3588,11 @@ case "$target" in
 	echo "Runutil" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 	echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/Runutil/hispeed_freq
 	echo 90 > /sys/devices/system/cpu/cpu0/cpufreq/Runutil/hispeed_load
-	echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/Runutil/iowait_boost_enable
 
 	# configure governor settings for big cluster
 	echo "Runutil" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
 	echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/Runutil/hispeed_freq
 	echo 90 > /sys/devices/system/cpu/cpu4/cpufreq/Runutil/hispeed_load
-	echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/Runutil/iowait_boost_enable
 	echo "0:1766400 4:1056000" > /sys/module/cpu_boost/parameters/input_boost_freq
 	echo "0:1766400 4:902400" > /sys/module/cpu_boost/parameters/sub_boost_freq
 	echo 80 > /sys/module/cpu_boost/parameters/input_boost_ms
