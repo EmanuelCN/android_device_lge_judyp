@@ -92,9 +92,18 @@ on boot
     chown system system /mnt/vendor/persist-lg/property/persist.sys.lg.fota_silent
     # End BootProperty Features
 
-#on post-fs
-# Support tuxera exfat filesystem
-#    insmod /vendor/lib/modules/texfat.ko
-
 on early-fs
     ffu_update
+    start vold
+
+on late-fs
+    restorecon_recursive /metadata
+    mkdir /metadata/vold
+    chmod 0700 /metadata/vold
+
+    mount_all /vendor/etc/fstab.${ro.hardware} --late
+    swapon_all /vendor/etc/fstab.${ro.hardware}
+
+on post-fs
+    wait_for_prop hwservicemanager.ready true
+    exec - root root -- /system/bin/wait_for_keymaster
