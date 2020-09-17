@@ -16,13 +16,11 @@
 
 DEVICE_PATH := device/lge/judyln
 
-# inherit from common v40
+# inherit from common v30
 -include device/lge/sdm845-common/BoardConfigCommon.mk
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
-BTHW_FW_EXTENDED_CONFIGURATION := true
-BTHW_FW_EXTENDED_CONFIGURATION_ONLY_I2SPCM_CONFIG = := false
 
 # Camera
 TARGET_USES_YCRCB_VENUS_CAMERA_PREVIEW := true
@@ -31,21 +29,10 @@ TARGET_USES_YCRCB_VENUS_CAMERA_PREVIEW := true
 BOARD_KERNEL_CMDLINE += androidboot.hardware=judyln
 TARGET_KERNEL_CONFIG := judyln_lao_com-perf_defconfig
 
-BOARD_HARDWARE_CLASS := $(DEVICE_PATH)/lineagehw
-
 # Partitions
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 48708296704
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_VENDORIMAGE_PARTITION_SIZE := 1048576000
-
-BOARD_ROOT_EXTRA_FOLDERS := oem persdata
-BOARD_ROOT_EXTRA_SYMLINKS := \
-    /mnt/vendor/persist:/persist \
-    /mnt/product/carrier:/carrier \
-    /vendor/dps:/dsp \
-    /mnt/vendor/eri:/eri \
-    /mnt/vendor/absolute:/persdata/absolute \
-    /vendor/firmware_mnt:/firmware
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.judyln
@@ -54,7 +41,6 @@ TARGET_PREBUILT_RECOVERY_RAMDISK_CPIO := $(DEVICE_PATH)/ramdisk-recovery.cpio
 # Vendor init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_judyln
 TARGET_RECOVERY_DEVICE_MODULES := libinit_judyln
-
 
 # inherit from the proprietary version
 -include vendor/lge/judyln/BoardConfigVendor.mk

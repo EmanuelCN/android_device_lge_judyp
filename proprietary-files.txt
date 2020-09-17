@@ -1,11 +1,11 @@
 # Audio
-vendor/etc/acdbdata/v1/General_cal.acdb 
-vendor/etc/acdbdata/v1/Global_cal.acdb 
-vendor/etc/acdbdata/v1/Bluetooth_cal.acdb 
-vendor/etc/acdbdata/v1/Headset_cal.acdb 
-vendor/etc/acdbdata/v1/Hdmi_cal.acdb 
-vendor/etc/acdbdata/v1/Codec_cal.acdb 
-vendor/etc/acdbdata/v1/Speaker_cal.acdb 
+vendor/etc/acdbdata/v1/General_cal.acdb
+vendor/etc/acdbdata/v1/Global_cal.acdb
+vendor/etc/acdbdata/v1/Bluetooth_cal.acdb
+vendor/etc/acdbdata/v1/Headset_cal.acdb
+vendor/etc/acdbdata/v1/Hdmi_cal.acdb
+vendor/etc/acdbdata/v1/Codec_cal.acdb
+vendor/etc/acdbdata/v1/Speaker_cal.acdb
 vendor/etc/acdbdata/v1/Handset_cal.acdb
 
 vendor/etc/acdbdata/General_cal.acdb
@@ -19,7 +19,8 @@ vendor/etc/acdbdata/Handset_cal.acdb
 
 # Camera
 vendor/lib/hw/camera.sdm845.so
-vendor/lib/hw/com.qti.chi.override.so
+vendor/lib/hw/com.qti.chi.override.so|aba5cab718dd20f1abe458fb18426ce717d95345
+vendor/lib/sensors.hal.tof.so
 vendor/lib/libAutoContrast.so
 vendor/lib/libSJVideoNR.so
 vendor/lib/libarcsoft_beauty_picselfie.so
@@ -40,7 +41,6 @@ vendor/lib/libmmcamera_faceproc2.so
 vendor/lib/libmorpho_image_stab31.so
 vendor/lib/libmorpho_superzoom.so
 vendor/lib/libmpbase.so
-vendor/lib/sensors.hal.tof.so
 vendor/lib64/libmmcamera_faceproc.so
 vendor/lib64/libmmcamera_faceproc2.so
 
@@ -154,6 +154,19 @@ vendor/lib/camera/components/com.qti.stats.awbwrapper.so
 vendor/lib/camera/components/com.qti.stats.pdlib.so
 vendor/lib/camera/components/com.qti.stats.pdlibsony.so
 vendor/lib/camera/components/com.qti.stats.pdlibwrapper.so
+vendor/lib64/camera/components/com.qti.eisv2.so
+vendor/lib64/camera/components/com.qti.eisv3.so
+vendor/lib64/camera/components/com.qti.stats.aec.so
+vendor/lib64/camera/components/com.qti.stats.af.so
+vendor/lib64/camera/components/com.qti.stats.afd.so
+vendor/lib64/camera/components/com.qti.stats.asd.so
+vendor/lib64/camera/components/com.qti.stats.awb.so
+vendor/lib64/camera/components/com.qti.stats.haf.so
+vendor/lib64/camera/components/com.qti.stats.localhistogram.so
+vendor/lib64/camera/components/com.qti.stats.pdlib.so
+vendor/lib64/camera/components/com.qti.stats.pdlibsony.so
+vendor/lib64/camera/components/com.qti.stats.pdlibwrapper.so
+
 
 
 # Camera - Sensor
@@ -189,6 +202,8 @@ vendor/lib/libhdcp1prov.so
 vendor/lib/libhdcp2p2prov.so
 vendor/lib/libhdcpsrm.so
 vendor/lib/liblgefido_hal_impl.so
+vendor/lib/libLgeVendorFeatures2.so
+vendor/lib/liblgftmitem_vendor.so
 vendor/lib/libmdsprpc.so
 vendor/lib/liboemcrypto.so
 vendor/lib/libpvr.so
@@ -199,27 +214,28 @@ vendor/lib/libatd_corelib.so
 vendor/lib/libatd_modeminterface.so
 vendor/lib/libcpion.so
 vendor/lib64/libGPQTEEC_vendor.so
-vendor/lib64/libcppf.so
 vendor/lib64/libfpfactory-impl.so
 vendor/lib64/libhdcp1prov.so
 vendor/lib64/libhdcp2p2prov.so
 vendor/lib64/libhdcpsrm.so
 vendor/lib64/liblgefido_hal_impl.so
+vendor/lib64/libLgeVendorFeatures2.so
+vendor/lib64/liblgftmitem_vendor.so
 vendor/lib64/libmdsprpc.so
 vendor/lib64/liboemcrypto.so
 vendor/lib64/libpvr.so
 vendor/lib64/librmp.so
 vendor/lib64/libsi.so
 vendor/lib64/libcpion.so
-vendor/lib64/liblgftmitem.so
-vendor/lib/liblgftmitem.so
+vendor/lib64/libunified_sysfs_vendor.so
 vendor/lib/libbluedroid_bdt.so
-vendor/lib/libunified_sysfs_pm.so
 vendor/lib/liblgehdcpek.so
+vendor/lib/libunified_sysfs_vendor.so
 vendor/bin/hw/vendor.lge.hardware.lgatcmd@1.0-service
 vendor/etc/init/vendor.lge.hardware.lgatcmd@1.0-service.rc
 vendor/lib/hw/vendor.lge.hardware.lgatcmd@1.0-impl.so
 vendor/lib/vendor.lge.hardware.lgatcmd@1.0.so
+vendor/lib/vendor.lge.hardware.filehandle@1.0.so
 
 # DRM
 vendor/bin/qseecomd
@@ -399,20 +415,18 @@ vendor/etc/wifi/NA_GSM/bdwlan.bin
 vendor/etc/wifi/NA_GSM/bdwlan_ch0.bin
 vendor/etc/wifi/NA_GSM/bdwlan_ch1.bin
 
-# OpenGL
-vendor/etc/permissions/android.hardware.opengles.aep.xml
-
 # Wifi
 vendor/bin/hw/wlan_ril
 vendor/bin/cnss-daemon
 vendor/bin/fstman
-vendor/bin/hw/vendor.lge.hardware.wifi.hal@1.0-service
-vendor/etc/init/vendor.lge.hardware.wifi.hal@1.0-service.rc
+vendor/bin/hw/vendor.lge.hardware.wifi.hal@1.1-service
+vendor/etc/init/vendor.lge.hardware.wifi.hal@1.1-service.rc
 vendor/lib64/libdiagd_client_qca.so
 vendor/lib64/libril_wrapper.so
 vendor/lib64/libwfcu.so
 vendor/lib64/vendor.lge.hardware.wifi.hal@1.0.so
-vendor/lib64/vendor.lge.hardware.wifi.hostapd@1.0.so
+vendor/lib64/vendor.lge.hardware.wifi.hal@1.1.so
+vendor/lib64/vendor.lge.hardware.wifi.hostapd@2.0.so
 vendor/lib64/vendor.lge.hardware.wifi.supplicant@1.0.so
 vendor/lib64/vendor.lge.hardware.wifi.supplicant@2.0.so
 
@@ -422,14 +436,12 @@ vendor/etc/wifi/PerProviderSubscription.conf
 # Wifi - Wigig
 vendor/bin/wigighalsvc
 vendor/bin/wigignpt
-system/lib64/vendor.qti.hardware.wigig.netperftuner@1.0.so
-system/lib64/vendor.qti.hardware.wigig.supptunnel@1.0.so
 vendor/lib64/vendor.qti.hardware.wigig.netperftuner@1.0.so
 vendor/lib64/vendor.qti.hardware.wigig.supptunnel@1.0.so
-system/lib/vendor.qti.hardware.wigig.netperftuner@1.0.so
 vendor/lib/vendor.qti.hardware.wigig.netperftuner@1.0.so
 
 # Wifi - Wigig - Configs
+vendor/etc/configstore/wigig.xml
 vendor/etc/wifi/wigig_p2p_supplicant.conf
 vendor/etc/wifi/wigig_supplicant.conf
 vendor/etc/wifi/fstman.ini
@@ -437,10 +449,8 @@ vendor/etc/wifi/fstman.ini
 # FM Radio
 lib64/fm_helium.so
 lib64/libfm-hci.so
-lib64/vendor.qti.hardware.fm@1.0.so
 lib/fm_helium.so
 lib/libfm-hci.so
-lib/vendor.qti.hardware.fm@1.0.so
 
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
@@ -488,39 +498,20 @@ vendor/etc/qdcm_calib_data_SW49409_1440_2880_cmd_mode_dsc_dsi_panel.xml
 vendor/etc/qdcm_calib_data_SW49410_1440_3120_cmd_mode_dsc_dsi_panel.xml
 
 # SCVE
-vendor/lib64/libscveBlobDescriptor.so
-vendor/lib64/libscveBlobDescriptor_stub.so
-vendor/lib64/libscveCommon.so
-vendor/lib64/libscveCommon_stub.so
 vendor/lib64/libscveFaceLandmarks.so
 vendor/lib64/libscveFaceRecognition.so
-vendor/lib64/libscveObjectSegmentation.so
 vendor/lib64/libscveObjectSegmentation_stub.so
-vendor/lib64/libscveObjectTracker.so
-vendor/lib64/libscveObjectTracker_stub.so
-vendor/lib64/libscvePanorama_lite.so
 vendor/lib64/libscvePanorama.so
-vendor/lib64/libscveScan3D.so
 vendor/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so
 vendor/lib64/vendor.qti.hardware.scve.panorama@1.0.so
-vendor/lib/libscveBlobDescriptor.so
-vendor/lib/libscveBlobDescriptor_stub.so
-vendor/lib/libscveCommon.so
-vendor/lib/libscveCommon_stub.so
 vendor/lib/libscveFaceLandmarks.so
 vendor/lib/libscveFaceRecognition.so
-vendor/lib/libscveObjectSegmentation.so
 vendor/lib/libscveObjectSegmentation_stub.so
-vendor/lib/libscveObjectTracker.so
-vendor/lib/libscveObjectTracker_stub.so
-vendor/lib/libscvePanorama_lite.so
 vendor/lib/libscvePanorama.so
-vendor/lib/libscveScan3D.so
 vendor/lib/vendor.qti.hardware.scve.objecttracker@1.0.so
 vendor/lib/vendor.qti.hardware.scve.panorama@1.0.so
 
 # Sensors
--framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar
 vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service
 vendor/bin/sensors.qti
 vendor/bin/sscrpcd
@@ -554,14 +545,8 @@ vendor/lib64/sensors.ssc.so
 vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 
 # Sensors (LGE)
-vendor/bin/hw/vendor.lge.hardware.sensors@1.0-service
 vendor/bin/sns_sensor_test_cpp
-vendor/etc/init/vendor.lge.hardware.sensors@1.0-service.rc
-vendor/lib64/hw/vendor.lge.hardware.sensors@1.0-impl.so
-vendor/lib64/vendor.lge.hardware.sensors@1.0.so
 vendor/lib64/libsensor_lge_cal.so
-vendor/lib/hw/vendor.lge.hardware.sensors@1.0-impl.so
-vendor/lib/vendor.lge.hardware.sensors@1.0.so
 vendor/lib/libsensor_lge_cal.so
 
 # Sensors configs
@@ -624,13 +609,3 @@ vendor/etc/sensors/registry/registry/sensors_registry
 vendor/etc/sensors/registry/registry/sensors_settings
 vendor/etc/sensors/registry/sns_reg_config
 vendor/etc/sensors/sns_reg_config
-
-# Vulkan
-vendor/etc/permissions/android.hardware.vulkan.compute-0.xml
-vendor/etc/permissions/android.hardware.vulkan.level-1.xml
-vendor/etc/permissions/android.hardware.vulkan.version-1_1.xml
-
-#ZRAM
-
-vendor/init.lge.svelte.rc
-vendor/bin/init.lge.zramswap.sh
