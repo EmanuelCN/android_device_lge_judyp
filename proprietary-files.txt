@@ -167,8 +167,6 @@ vendor/lib64/camera/components/com.qti.stats.pdlib.so
 vendor/lib64/camera/components/com.qti.stats.pdlibsony.so
 vendor/lib64/camera/components/com.qti.stats.pdlibwrapper.so
 
-
-
 # Camera - Sensor
 vendor/lib/camera/com.qti.sensor.imx351.so
 vendor/lib/camera/com.qti.sensor.imx351_wide.so
@@ -188,11 +186,6 @@ vendor/lib/camera/com.qti.tuned.sl846.bin
 
 # Camera - HDR
 vendor/etc/camera/vnr/SJ_VideoNR_LUT.bin
-
-# Configstore
-vendor/bin/hw/vendor.lge.hardware.configstore@1.0-service
-vendor/etc/init/vendor.lge.hardware.configstore@1.0-service.rc
-vendor/lib64/vendor.lge.hardware.configstore@1.0.so
 
 # Crypto
 vendor/lib/libGPQTEEC_vendor.so
@@ -231,15 +224,17 @@ vendor/lib64/libunified_sysfs_vendor.so
 vendor/lib/libbluedroid_bdt.so
 vendor/lib/liblgehdcpek.so
 vendor/lib/libunified_sysfs_vendor.so
-vendor/bin/hw/vendor.lge.hardware.lgatcmd@1.0-service
-vendor/etc/init/vendor.lge.hardware.lgatcmd@1.0-service.rc
-vendor/lib/hw/vendor.lge.hardware.lgatcmd@1.0-impl.so
-vendor/lib/vendor.lge.hardware.lgatcmd@1.0.so
 vendor/lib/vendor.lge.hardware.filehandle@1.0.so
 
 # DRM
+product/lib/vendor.qti.hardware.qseecom@1.0.so
+product/lib64/vendor.qti.hardware.qseecom@1.0.so
+vendor/bin/hw/vendor.qti.hardware.qseecom@1.0-service
 vendor/bin/qseecomd
 vendor/bin/seemp_healthd
+vendor/etc/init/qseecomd.rc
+vendor/etc/init/vendor.qti.hardware.qseecom@1.0-service.rc
+vendor/lib64/hw/vendor.qti.hardware.qseecom@1.0-impl.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
 vendor/lib64/libGPreqcancel.so
@@ -253,6 +248,8 @@ vendor/lib64/libspl.so
 vendor/lib64/libssd.so
 vendor/lib64/libStDrvInt.so
 vendor/lib64/libtzdrmgenprov.so
+vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
+vendor/lib/hw/vendor.qti.hardware.qseecom@1.0-impl.so
 vendor/lib/libcppf.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
@@ -265,6 +262,7 @@ vendor/lib/libspl.so
 vendor/lib/libssd.so
 vendor/lib/libStDrvInt.so
 vendor/lib/libtzdrmgenprov.so
+vendor/lib/vendor.qti.hardware.qseecom@1.0.so
 
 # DSP
 vendor/bin/chre
@@ -325,16 +323,11 @@ vendor/lib64/libsymphony-1.1.4.so
 vendor/lib64/libsymphonypower-1.1.4.so
 
 # Fingerprint
-vendor/bin/hw/vendor.lge.hardware.biometrics.fingerprint@2.1-service
-vendor/etc/init/vendor.lge.hardware.biometrics.fingerprint@2.1-service.rc
 vendor/lib64/hw/fingerprint.sdm845.so
-vendor/lib64/vendor.lge.hardware.biometrics.fingerprint@2.1.so
-vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib64/libfpfactory.so
 vendor/lib64/libgf_hal.so
 vendor/lib64/libgf_algo.so
 vendor/lib/hw/fingerprint.sdm845.so
-vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib/libfpfactory.so
 vendor/lib/libgf_hal.so
 vendor/lib/libgf_algo.so
@@ -415,37 +408,6 @@ vendor/etc/wifi/NA_GSM/bdwlan.bin
 vendor/etc/wifi/NA_GSM/bdwlan_ch0.bin
 vendor/etc/wifi/NA_GSM/bdwlan_ch1.bin
 
-# Wifi
-vendor/bin/hw/wlan_ril
-vendor/bin/cnss-daemon
-vendor/bin/fstman
-vendor/bin/hw/vendor.lge.hardware.wifi.hal@1.1-service
-vendor/etc/init/vendor.lge.hardware.wifi.hal@1.1-service.rc
-vendor/lib64/libdiagd_client_qca.so
-vendor/lib64/libril_wrapper.so
-vendor/lib64/libwfcu.so
-vendor/lib64/vendor.lge.hardware.wifi.hal@1.0.so
-vendor/lib64/vendor.lge.hardware.wifi.hal@1.1.so
-vendor/lib64/vendor.lge.hardware.wifi.hostapd@2.0.so
-vendor/lib64/vendor.lge.hardware.wifi.supplicant@1.0.so
-vendor/lib64/vendor.lge.hardware.wifi.supplicant@2.0.so
-
-# Wifi - Configs
-vendor/etc/wifi/PerProviderSubscription.conf
-
-# Wifi - Wigig
-vendor/bin/wigighalsvc
-vendor/bin/wigignpt
-vendor/lib64/vendor.qti.hardware.wigig.netperftuner@1.0.so
-vendor/lib64/vendor.qti.hardware.wigig.supptunnel@1.0.so
-vendor/lib/vendor.qti.hardware.wigig.netperftuner@1.0.so
-
-# Wifi - Wigig - Configs
-vendor/etc/configstore/wigig.xml
-vendor/etc/wifi/wigig_p2p_supplicant.conf
-vendor/etc/wifi/wigig_supplicant.conf
-vendor/etc/wifi/fstman.ini
-
 # FM Radio
 lib64/fm_helium.so
 lib64/libfm-hci.so
@@ -454,13 +416,13 @@ lib/libfm-hci.so
 
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
-vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
+#vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
 # HotwordEnrollment
--product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk:priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk
--product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk:priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk
+-product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk
+-product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk
 
 # Keystore
 vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
@@ -609,3 +571,4 @@ vendor/etc/sensors/registry/registry/sensors_registry
 vendor/etc/sensors/registry/registry/sensors_settings
 vendor/etc/sensors/registry/sns_reg_config
 vendor/etc/sensors/sns_reg_config
+
