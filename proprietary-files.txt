@@ -118,11 +118,13 @@ vendor/lib/lib_wdr2.so
 # Camera - components
 vendor/lib/camera/components/com.lge.node.camerasolution.so
 vendor/lib/camera/components/com.lge.node.capturebokeh.so
+vendor/lib/camera/components/com.lge.node.elpis.so
 vendor/lib/camera/components/com.lge.node.elvis.so
 vendor/lib/camera/components/com.lge.node.hdr.so
 vendor/lib/camera/components/com.lge.node.lavis.so
 vendor/lib/camera/components/com.lge.node.multiframe.so
 vendor/lib/camera/components/com.lge.node.realtimebokeh.so
+vendor/lib/camera/components/com.lge.node.warp.so
 vendor/lib/camera/components/com.lge.stats.aec.so
 vendor/lib/camera/components/com.lge.stats.aecwrapper.so
 vendor/lib/camera/components/com.lge.stats.af_core.so
@@ -187,27 +189,19 @@ vendor/lib/camera/com.qti.tuned.sl846.bin
 # Camera - HDR
 vendor/etc/camera/vnr/SJ_VideoNR_LUT.bin
 
+# Configstore
+vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
+vendor/etc/configstore/vpp.configstore.xml
+vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
+vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.capabilityconfigstore@1.0.so
+vendor/lib/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
+vendor/lib/vendor.qti.hardware.capabilityconfigstore@1.0.so
+
 # Crypto
-vendor/lib/libGPQTEEC_vendor.so
-vendor/lib/libatd_common.so
-vendor/lib/libfpfactory-impl.so
-vendor/lib/libhdcp1prov.so
-vendor/lib/libhdcp2p2prov.so
-vendor/lib/libhdcpsrm.so
-vendor/lib/liblgefido_hal_impl.so
-vendor/lib/libLgeVendorFeatures2.so
-vendor/lib/liblgftmitem_vendor.so
-vendor/lib/libmdsprpc.so
-vendor/lib/liboemcrypto.so
-vendor/lib/libpvr.so
-vendor/lib/librmp.so
-vendor/lib/libsi.so
-vendor/lib/libwvoemprov.so
-vendor/lib/libatd_corelib.so
-vendor/lib/libatd_modeminterface.so
-vendor/lib/libcpion.so
-vendor/lib64/libGPQTEEC_vendor.so
+vendor/lib64/libcpion.so
 vendor/lib64/libfpfactory-impl.so
+vendor/lib64/libGPQTEEC_vendor.so
 vendor/lib64/libhdcp1prov.so
 vendor/lib64/libhdcp2p2prov.so
 vendor/lib64/libhdcpsrm.so
@@ -219,11 +213,28 @@ vendor/lib64/liboemcrypto.so
 vendor/lib64/libpvr.so
 vendor/lib64/librmp.so
 vendor/lib64/libsi.so
-vendor/lib64/libcpion.so
 vendor/lib64/libunified_sysfs_vendor.so
+vendor/lib/libatd_common.so
+vendor/lib/libatd_corelib.so
+vendor/lib/libatd_modeminterface.so
 vendor/lib/libbluedroid_bdt.so
+vendor/lib/libcpion.so
+vendor/lib/libfpfactory-impl.so
+vendor/lib/libGPQTEEC_vendor.so
+vendor/lib/libhdcp1prov.so
+vendor/lib/libhdcp2p2prov.so
+vendor/lib/libhdcpsrm.so
+vendor/lib/liblgefido_hal_impl.so
 vendor/lib/liblgehdcpek.so
+vendor/lib/libLgeVendorFeatures2.so
+vendor/lib/liblgftmitem_vendor.so
+vendor/lib/libmdsprpc.so
+vendor/lib/liboemcrypto.so
+vendor/lib/libpvr.so
+vendor/lib/librmp.so
+vendor/lib/libsi.so
 vendor/lib/libunified_sysfs_vendor.so
+vendor/lib/libwvoemprov.so
 vendor/lib/vendor.lge.hardware.filehandle@1.0.so
 
 # DRM
@@ -291,14 +302,20 @@ vendor/lib/rfsa/adsp/fluence_voiceplus_module.so.1
 vendor/lib/rfsa/adsp/geofence.so
 vendor/lib/rfsa/adsp/HeaacDecoderModule.so.1
 vendor/lib/rfsa/adsp/LdacModule.so.1
+vendor/lib/rfsa/adsp/lg_nanoapp_pa.so
+vendor/lib/rfsa/adsp/lg_nanoapp_sbd.so
+vendor/lib/rfsa/adsp/lg_nanoapp_su.so
 vendor/lib/rfsa/adsp/libapps_mem_heap.so
+vendor/lib/rfsa/adsp/libcamera_nn_skel.so
 vendor/lib/rfsa/adsp/libchre_slpi_skel.so
+vendor/lib/rfsa/adsp/libcvpdsp_skel.so
 vendor/lib/rfsa/adsp/libdspCV_skel.so
 vendor/lib/rfsa/adsp/libdsp_streamer_add_constant.so
 vendor/lib/rfsa/adsp/libdsp_streamer_binning.so
 vendor/lib/rfsa/adsp/libdsp_streamer_skel.so
 vendor/lib/rfsa/adsp/libfastcvadsp.so
 vendor/lib/rfsa/adsp/libfastcvdsp_skel.so
+vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_skel.so
 vendor/lib/rfsa/adsp/libhexagon_nn_skel.so
 vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so
 vendor/lib/rfsa/adsp/libscveObjectSegmentation_skel.so
@@ -416,7 +433,7 @@ lib/libfm-hci.so
 
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
-#vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
+vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
@@ -460,16 +477,34 @@ vendor/etc/qdcm_calib_data_SW49409_1440_2880_cmd_mode_dsc_dsi_panel.xml
 vendor/etc/qdcm_calib_data_SW49410_1440_3120_cmd_mode_dsc_dsi_panel.xml
 
 # SCVE
+vendor/lib64/libscveBlobDescriptor.so
+vendor/lib64/libscveBlobDescriptor_stub.so
+vendor/lib64/libscveCommon.so
+vendor/lib64/libscveCommon_stub.so
 vendor/lib64/libscveFaceLandmarks.so
 vendor/lib64/libscveFaceRecognition.so
+vendor/lib64/libscveObjectSegmentation.so
 vendor/lib64/libscveObjectSegmentation_stub.so
+vendor/lib64/libscveObjectTracker.so
+vendor/lib64/libscveObjectTracker_stub.so
+vendor/lib64/libscvePanorama_lite.so
 vendor/lib64/libscvePanorama.so
+vendor/lib64/libscveScan3D.so
 vendor/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so
 vendor/lib64/vendor.qti.hardware.scve.panorama@1.0.so
+vendor/lib/libscveBlobDescriptor.so
+vendor/lib/libscveBlobDescriptor_stub.so
+vendor/lib/libscveCommon.so
+vendor/lib/libscveCommon_stub.so
 vendor/lib/libscveFaceLandmarks.so
 vendor/lib/libscveFaceRecognition.so
+vendor/lib/libscveObjectSegmentation.so
 vendor/lib/libscveObjectSegmentation_stub.so
+vendor/lib/libscveObjectTracker.so
+vendor/lib/libscveObjectTracker_stub.so
+vendor/lib/libscvePanorama_lite.so
 vendor/lib/libscvePanorama.so
+vendor/lib/libscveScan3D.so
 vendor/lib/vendor.qti.hardware.scve.objecttracker@1.0.so
 vendor/lib/vendor.qti.hardware.scve.panorama@1.0.so
 
@@ -571,4 +606,3 @@ vendor/etc/sensors/registry/registry/sensors_registry
 vendor/etc/sensors/registry/registry/sensors_settings
 vendor/etc/sensors/registry/sns_reg_config
 vendor/etc/sensors/sns_reg_config
-
