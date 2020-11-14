@@ -109,4 +109,12 @@
     <!-- Whether device has a notch -->
     <bool name="config_haveNotch">true</bool>
 
+    <!-- Smart charging -->
+    <bool name="config_smartChargingAvailable">true</bool>
+    <integer name="config_smartChargingBatteryLevel">80</integer>
+    <integer name="config_smartChargingBatteryResumeLevel">60</integer>
+    <string name="config_SmartChargingSysfsNode" translatable="false">/sys/devices/platform/lge-unified-nodes/charging_enable</string>
+    <string name="config_SmartChargingSupspendValue" translatable="false">0</string>
+    <string name="config_SmartChargingResumeValue" translatable="false">1</string>
+
 </resources>
