@@ -58,7 +58,7 @@ while [ "$1" != "" ]; do
 done
 
 if [ -z "${SRC}" ]; then
-    SRC=/home/darren/stock/30b/system/
+    SRC=/home/darren/stock/30b/system
 fi
 
 # Initialize the helper
