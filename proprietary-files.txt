@@ -484,8 +484,6 @@ vendor/etc/qdcm_calib_data_SW49410_1440_3120_cmd_mode_dsc_dsi_panel.xml
 bin/perfservice
 etc/init/perfservice.rc
 etc/perf/wlc_model.tflite
-etc/permissions/com.qualcomm.qti.Performance.xml
-etc/permissions/com.qualcomm.qti.UxPerformance.xml
 lib/libqti-at.so
 lib/libqti-iopd-client_system.so
 lib/libqti-perfd-client_system.so
