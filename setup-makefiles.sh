@@ -1,9 +1,7 @@
 #!/bin/bash
 #
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017 The LineageOS Project
-# Copyright (C) 2018 The PixelExperience Project
-# Copyright (C) 2020 The Evoltuion X Project
+# Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2019-2020 Paranoid Android
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,32 +17,35 @@
 #
 
 set -e
-
 DEVICE=judyln
 VENDOR=lge
 
-INITIAL_COPYRIGHT_YEAR=2019
+INITIAL_COPYRIGHT_YEAR=2020
 
 # Load extract_utils and do some sanity checks
+
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-EVO_ROOT="$MY_DIR"/../../..
+ROOT="$MY_DIR"/../../..
 
-HELPER="$EVO_ROOT"/vendor/evolution/build/tools/extract_utils.sh
+HELPER="$ROOT"/vendor/extended/build/tools/extract_utils.sh
+HELPER="$ROOT"/vendor/404/build/tools/extract_utils.sh
+
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
 fi
 . "$HELPER"
 
-# Initialize the helper
-setup_vendor "$DEVICE" "$VENDOR" "$EVO_ROOT"
+# Initialize the helper for device
+setup_vendor "$DEVICE" "$VENDOR" "$ROOT"
 
 # Copyright headers and guards
 write_headers "judypn judyln"
 
-write_makefiles "$MY_DIR"/proprietary-files.txt
+# The standard device blobs
+write_makefiles "$MY_DIR"/proprietary-files.txt true
 
-# Finish
+# We are done!
 write_footers

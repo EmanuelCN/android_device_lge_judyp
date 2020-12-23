@@ -15,8 +15,8 @@
 #
 
 PRODUCT_MAKEFILES += \
-    $(LOCAL_DIR)/evolution_judyln.mk
+    $(LOCAL_DIR)/p404_judyln.mk
 
 COMMON_LUNCH_CHOICES := \
-    evolution_judyln-userdebug \
-    evolution_judyln-eng
+    p404_judyln-userdebug \
+    p404_judyln-eng
