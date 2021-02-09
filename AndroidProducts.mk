@@ -1,3 +1,4 @@
+
 #
 # Copyright 2015 The Android Open Source Project
 #
@@ -15,8 +16,8 @@
 #
 
 PRODUCT_MAKEFILES += \
-    $(LOCAL_DIR)/p404_judyln.mk
+    $(LOCAL_DIR)/dot_judyln.mk
 
 COMMON_LUNCH_CHOICES := \
-    p404_judyln-userdebug \
-    p404_judyln-eng
+    dot_judyln-userdebug \
+    dot_judyln-eng

@@ -27,7 +27,7 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 ROOT="$MY_DIR"/../../..
 
-HELPER="$ROOT"/vendor/404/build/tools/extract_utils.sh
+HELPER="$ROOT"/vendor/dot/build/tools/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
@@ -52,7 +52,7 @@ while [ "$1" != "" ]; do
 done
 
 if [ -z "$SRC" ]; then
-    SRC=/home/darren/stock/30b/system/
+    SRC=/home/darren/stock/30f/system/
 fi
 
 # Initialize the helper for common device
