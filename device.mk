@@ -46,8 +46,7 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/rootdir/etc/fstab.judyln:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.judyln \
-    $(DEVICE_PATH)/rootdir/init.lge.svelte.rc:$(TARGET_COPY_OUT_VENDOR)/init.lge.svelte.rc
+    $(DEVICE_PATH)/rootdir/etc/fstab.judyln:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.judyln
 
 $(foreach f,$(wildcard $(DEVICE_PATH)/rootdir/etc/init/hw/*.rc),\
         $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/$(notdir $f)))
