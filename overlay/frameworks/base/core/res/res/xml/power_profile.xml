@@ -112,11 +112,16 @@
         <value>223.37</value> <!-- 2553 MHz CPU speed -->
         <value>253.77</value> <!-- 2649 MHz CPU speed -->
         <value>283.66</value> <!-- 2803 MHz CPU speed -->
-
+    </array>
+    <array name="block_aod">
+        <value>0</value>
+        <value>0</value>
+    </array>
+    <array name="block_haptic">
+        <value>0.01 </value>
+        <value>0.01 </value>
     </array>
 
-    <!-- Additional power used when screen is ambient mode -->
-    <item name="ambient.on">25</item>
 
     <!-- Additional power used when screen is turned on at minimum brightness -->
     <item name="screen.on">125.9</item>
@@ -125,17 +130,17 @@
     <item name="screen.full">162.0</item>
 
     <!-- Average power used by the camera flash module when on -->
-    <item name="camera.flashlight">240.47</item>
+    <item name="camera.flashlight">200</item>
     <!-- Average power use by the camera subsystem for a typical camera
          application. Intended as a rough estimate for an application running a
          preview and capturing approximately 10 full-resolution pictures per
          minute. -->
-    <item name="camera.avg">855</item>
+    <item name="camera.avg">750.0</item>
 
     <!-- Additional power used when video is playing -->
-    <item name="video">25</item>
+    <item name="video">0.1</item>
     <!-- Additional power used when audio is playing -->
-    <item name="audio">75</item>
+    <item name="audio">0.1</item>
 
     <!-- Cellular modem related values.-->
     <item name="modem.controller.sleep">0</item>
