@@ -182,9 +182,9 @@ vendor/lib/camera/com.qti.sensormodule.sl846.bin
 # Camera - tuned
 vendor/etc/camera/camera_tune_config.xml
 vendor/lib/camera/com.qti.tuned.default.bin
-vendor/lib/camera/com.qti.tuned.imx351.bin
-vendor/lib/camera/com.qti.tuned.imx351_wide.bin
-vendor/lib/camera/com.qti.tuned.sl846.bin
+vendor/lib/camera/com.qti.tuned.imx351.bin|4af0a68eecd521016db3ce4e296caee4679e51de
+vendor/lib/camera/com.qti.tuned.imx351_wide.bin|4ffd0174f9070b887b3021d55d658a03a3b3f521
+vendor/lib/camera/com.qti.tuned.sl846.bin|c1540684fa6bd978fcb22c801c1d9b23b0b742a3
 
 # Camera - HDR
 vendor/etc/camera/vnr/SJ_VideoNR_LUT.bin
