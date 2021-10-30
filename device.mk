@@ -20,6 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product-if-exists, vendor/lge/judyln/judyln-vendor.mk)
 
 DEVICE_PATH := device/lge/judyln
+DEVICE_NAME := judyln
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -43,18 +44,6 @@ PRODUCT_COPY_FILES += \
 # HBM
 PRODUCT_PACKAGES += \
     HBMTrigger
-
-# Init
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/rootdir/etc/fstab.judyln:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.judyln \
-    $(DEVICE_PATH)/rootdir/init.lge.svelte.rc:$(TARGET_COPY_OUT_VENDOR)/init.lge.svelte.rc
-
-$(foreach f,$(wildcard $(DEVICE_PATH)/rootdir/etc/init/hw/*.rc),\
-        $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/$(notdir $f)))
-
-# IRSC
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 # NFC
 PRODUCT_COPY_FILES += \
