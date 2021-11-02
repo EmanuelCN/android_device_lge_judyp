@@ -36,6 +36,12 @@ service immvibed /vendor/bin/immvibed -p 99 -u 1000
     ioprio rt 4
 
 on post-fs
+# NFC: create data/nfc for nv storage
+    mkdir /data/vendor/nfc 0770 nfc nfc
+# Support tuxera exfat filesystem
+    insmod /vendor/lib/modules/texfat.ko
+
+on post-fs
 # Support tuxera exfat filesystem
     insmod /vendor/lib/modules/texfat.ko
 
