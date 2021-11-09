@@ -17,6 +17,11 @@ vendor/etc/acdbdata/Codec_cal.acdb
 vendor/etc/acdbdata/Speaker_cal.acdb
 vendor/etc/acdbdata/Handset_cal.acdb
 
+vendor/lib/hw/audio.primary.sdm845.so|ab1b06316126c8283d89f4a19caa9db1a1b9f26f
+vendor/lib64/hw/audio.primary.sdm845.so|8b613f10ed77ffc14a4077f42b5dd0ff24535d6a
+vendor/lib/libhdmiedid.so
+vendor/lib64/libhdmiedid.so
+
 # Camera
 vendor/lib/hw/camera.sdm845.so
 vendor/lib/hw/com.qti.chi.override.so|aba5cab718dd20f1abe458fb18426ce717d95345
@@ -191,32 +196,23 @@ vendor/etc/camera/vnr/SJ_VideoNR_LUT.bin
 
 # Crypto
 vendor/lib64/libfpfactory-impl.so
-vendor/lib64/libGPQTEEC_vendor.so
-vendor/lib64/libhdcp1prov.so
-vendor/lib64/libhdcp2p2prov.so
 vendor/lib64/libhdcpsrm.so
 vendor/lib64/liblgefido_hal_impl.so
 vendor/lib64/libLgeVendorFeatures2.so
 vendor/lib64/liblgftmitem_vendor.so
-vendor/lib64/libmdsprpc.so
 vendor/lib64/liboemcrypto.so
 vendor/lib64/libpvr.so
 vendor/lib64/librmp.so
-vendor/lib64/libsi.so
 vendor/lib64/libunified_sysfs_vendor.so
 vendor/lib/libatd_modeminterface.so
 vendor/lib/libbluedroid_bdt.so
 vendor/lib/libcpion.so
 vendor/lib/libfpfactory-impl.so
-vendor/lib/libGPQTEEC_vendor.so
-vendor/lib/libhdcp1prov.so
-vendor/lib/libhdcp2p2prov.so
 vendor/lib/libhdcpsrm.so
 vendor/lib/liblgefido_hal_impl.so
 vendor/lib/liblgehdcpek.so
 vendor/lib/libLgeVendorFeatures2.so
 vendor/lib/liblgftmitem_vendor.so
-vendor/lib/libmdsprpc.so
 vendor/lib/liboemcrypto.so
 vendor/lib/libpvr.so
 vendor/lib/librmp.so
@@ -404,10 +400,37 @@ vendor/etc/qdcm_calib_data_SW49409_1440_2880_cmd_mode_dsc_dsi_panel.xml
 vendor/etc/qdcm_calib_data_SW49410_1440_3120_cmd_mode_dsc_dsi_panel.xml
 
 # SCVE
+vendor/lib64/libscveBlobDescriptor.so
+vendor/lib64/libscveBlobDescriptor_stub.so
+vendor/lib64/libscveCommon.so
+vendor/lib64/libscveCommon_stub.so
 vendor/lib64/libscveFaceLandmarks.so
 vendor/lib64/libscveFaceRecognition.so
+vendor/lib64/libscveObjectSegmentation.so
+vendor/lib64/libscveObjectSegmentation_stub.so
+vendor/lib64/libscveObjectTracker.so
+vendor/lib64/libscveObjectTracker_stub.so
+vendor/lib64/libscvePanorama_lite.so
+vendor/lib64/libscvePanorama.so
+vendor/lib64/libscveScan3D.so
+vendor/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so
+vendor/lib64/vendor.qti.hardware.scve.panorama@1.0.so
+vendor/lib/libscveBlobDescriptor.so
+vendor/lib/libscveBlobDescriptor_stub.so
+vendor/lib/libscveCommon.so
+vendor/lib/libscveCommon_stub.so
 vendor/lib/libscveFaceLandmarks.so
 vendor/lib/libscveFaceRecognition.so
+vendor/lib/libscveObjectSegmentation.so
+vendor/lib/libscveObjectSegmentation_stub.so
+vendor/lib/libscveObjectTracker.so
+vendor/lib/libscveObjectTracker_stub.so
+vendor/lib/libscvePanorama_lite.so
+vendor/lib/libscvePanorama.so
+vendor/lib/libscveScan3D.so
+vendor/lib/vendor.qti.hardware.scve.objecttracker@1.0.so
+vendor/lib/vendor.qti.hardware.scve.panorama@1.0.so
+
 
 # Sensors
 vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service
@@ -424,7 +447,6 @@ vendor/lib/libsns_low_lat_stream_stub.so
 vendor/lib/libsnsapi.so
 vendor/lib/libsnsdiaglog.so
 vendor/lib/libssc.so
-vendor/lib/libssc_default_listener.so
 vendor/lib/sensors.sar.so
 vendor/lib/sensors.ssc.so
 vendor/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
@@ -437,7 +459,6 @@ vendor/lib64/libsns_low_lat_stream_stub.so
 vendor/lib64/libsnsapi.so
 vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libssc.so
-vendor/lib64/libssc_default_listener.so
 vendor/lib64/sensors.sar.so
 vendor/lib64/sensors.ssc.so
 vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
