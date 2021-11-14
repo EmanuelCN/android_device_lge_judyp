@@ -17,11 +17,6 @@ vendor/etc/acdbdata/Codec_cal.acdb
 vendor/etc/acdbdata/Speaker_cal.acdb
 vendor/etc/acdbdata/Handset_cal.acdb
 
-vendor/lib/hw/audio.primary.sdm845.so|ab1b06316126c8283d89f4a19caa9db1a1b9f26f
-vendor/lib64/hw/audio.primary.sdm845.so|8b613f10ed77ffc14a4077f42b5dd0ff24535d6a
-vendor/lib/libhdmiedid.so
-vendor/lib64/libhdmiedid.so
-
 # Camera
 vendor/lib/hw/camera.sdm845.so
 vendor/lib/hw/com.qti.chi.override.so|aba5cab718dd20f1abe458fb18426ce717d95345
