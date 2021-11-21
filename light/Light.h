@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017-2018 The LineageOS Project
+ * Copyright (C) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 #ifndef ANDROID_HARDWARE_LIGHT_V2_0_LIGHT_H
 #define ANDROID_HARDWARE_LIGHT_V2_0_LIGHT_H
 
 #include <android/hardware/light/2.0/ILight.h>
+#include <hardware/lights.h>
 #include <hidl/Status.h>
-
-#include <fstream>
+#include <map>
 #include <mutex>
-#include <unordered_map>
+#include <fstream>
+
+#define BL              "/sys/class/backlight/panel0-backlight/"
+
+#define BL_EX           "/sys/class/backlight/panel0-backlight-ex/"
+
+#define LP_MODE         "/sys/devices/virtual/panel/factory/low_power_mode"
+
+#define BRIGHTNESS      "brightness"
+#define MAX_BRIGHTNESS  "max_brightness"
+
+#define LED             "/sys/class/lg_rgb_led/use_patterns/"
+
+#define BLINK_PATTERN   "blink_patterns"
+#define ONOFF_PATTERN   "onoff_patterns"
 
 namespace android {
 namespace hardware {
@@ -30,31 +43,39 @@ namespace light {
 namespace V2_0 {
 namespace implementation {
 
-struct Light : public ILight {
-    Light(std::ofstream&& backlight, std::ofstream&& emotionalBlinkPattern, std::ofstream&& emotionalOnOffPattern);
+using ::android::hardware::Return;
+using ::android::hardware::Void;
+using ::android::hardware::hidl_vec;
+using ::android::hardware::light::V2_0::ILight;
+using ::android::hardware::light::V2_0::LightState;
+using ::android::hardware::light::V2_0::Status;
+using ::android::hardware::light::V2_0::Type;
 
-    // Methods from ::android::hardware::light::V2_0::ILight follow.
-    Return<Status> setLight(Type type, const LightState& state)  override;
-    Return<void> getSupportedTypes(getSupportedTypes_cb _hidl_cb)  override;
+class Light : public ILight {
+   public:
+    Light(bool hasBacklight, bool hasBlinkPattern, bool hasOnOffPattern);
 
-private:
-    void setAttentionLight(const LightState& state);
-    void setBacklight(const LightState& state);
-    void setBatteryLight(const LightState& state);
-    void setNotificationLight(const LightState& state);
-    void checkLightStateLocked();
+    Return<Status> setLight(Type type, const LightState& state) override;
+    Return<void> getSupportedTypes(getSupportedTypes_cb _hidl_cb) override;
+
+   private:
     void setLightLocked(const LightState& state);
+    void checkLightStateLocked();
+    void handleAttention(const LightState& state);
+    void handleBacklight(const LightState& state);
+    void handleBattery(const LightState& state);
+    void handleNotifications(const LightState& state);
 
-    std::ofstream mBacklight;
-    std::ofstream mEmotionalBlinkPath;
-    std::ofstream mEmotionalOnOffPath;
+    std::mutex globalLock;
 
     LightState mAttentionState;
     LightState mBatteryState;
     LightState mNotificationState;
 
-    std::unordered_map<Type, std::function<void(const LightState&)>> mLights;
-    std::mutex mLock;
+    std::map<Type, std::function<void(const LightState&)>> mLights;
+
+    int mMaxBrightness = 255;
+    int mMaxBrightnessEx = 255;
 };
 
 }  // namespace implementation

@@ -23,8 +23,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk
 # Installs gsi keys into ramdisk, to boot a GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
-# Inherit from judyln device
-$(call inherit-product, device/lge/judyln/device.mk)
+# Inherit from judyp device
+$(call inherit-product, device/lge/judyp/device.mk)
 
 # Inherit some common DotOS stuff.
 $(call inherit-product, vendor/aosp/config/common.mk)
@@ -34,8 +34,8 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Device identifiers
 
-PRODUCT_NAME := aosp_judyln
-PRODUCT_DEVICE := judyln
+PRODUCT_NAME := aosp_judyp
+PRODUCT_DEVICE := judyp
 PRODUCT_BRAND := lge
 PRODUCT_MANUFACTURER := LGE
 PRODUCT_RELEASE_NAME := G7 ThinQ
@@ -43,12 +43,12 @@ PRODUCT_MODEL := LM-G710
 
 PRODUCT_GMS_CLIENTID_BASE := android-om-lg
 
-TARGET_VENDOR_PRODUCT_NAME := judyln_lao_com
-TARGET_VENDOR_DEVICE_NAME := judyln
+TARGET_VENDOR_PRODUCT_NAME := judyp_lao_com
+TARGET_VENDOR_DEVICE_NAME := judyp
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_DEVICE=judyln \
-    PRODUCT_NAME=judyln_lao_com \
+    TARGET_DEVICE=judyp \
+    PRODUCT_NAME=judyp_lao_com \
 
 # DotOs
 TARGET_BOOT_ANIMATION_RES := 1440

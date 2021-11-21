@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017-2018 The LineageOS Project
+ * Copyright 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,61 +14,65 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.light@2.0-service.judyln"
+#define LOG_TAG "android.hardware.light@2.0-service.lge_sdm845"
 
 #include <hidl/HidlTransportSupport.h>
 #include <utils/Errors.h>
 
 #include "Light.h"
 
-// libhwbinder:
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
-// Generated HIDL files
 using android::hardware::light::V2_0::ILight;
 using android::hardware::light::V2_0::implementation::Light;
 
-const static std::string kBacklightPath = "/sys/class/leds/wled/brightness";
-const static std::string kEmotionalBlinkPath = "/sys/class/lg_rgb_led/use_patterns/blink_patterns";
-const static std::string kEmotionalOnOffPath = "/sys/class/lg_rgb_led/use_patterns/onoff_patterns";
+using android::OK;
+using android::sp;
+using android::status_t;
 
 int main() {
-    std::ofstream backlight(kBacklightPath);
+    bool hasBacklight = true;
+    bool hasBlinkPattern = true;
+    bool hasOnOffPattern = true;
+
+    std::ofstream backlight(BL BRIGHTNESS);
     if (!backlight) {
         int error = errno;
-        ALOGE("Failed to open %s (%d): %s", kBacklightPath.c_str(), error, strerror(error));
+        ALOGE("Failed to open %s (%d): %s", BL BRIGHTNESS, error, strerror(error));
         return -error;
     }
 
-    std::ofstream emotionalBlinkPattern(kEmotionalBlinkPath);
+    std::ofstream emotionalBlinkPattern(LED BLINK_PATTERN);
     if (!emotionalBlinkPattern) {
         int error = errno;
-        ALOGE("Failed to open %s (%d): %s", kEmotionalBlinkPath.c_str(), error, strerror(error));
-        return -error;
+        ALOGE("Failed to open %s (%d): %s", LED BLINK_PATTERN, error, strerror(error));
+        ALOGE("Disable blink pattern");
+        hasBlinkPattern = false;
     }
 
-    std::ofstream emotionalOnOffPattern(kEmotionalOnOffPath);
+    std::ofstream emotionalOnOffPattern(LED ONOFF_PATTERN);
     if (!emotionalOnOffPattern) {
         int error = errno;
-        ALOGE("Failed to open %s (%d): %s", kEmotionalOnOffPath.c_str(), error, strerror(error));
-        return -error;
+        ALOGE("Failed to open %s (%d): %s", LED ONOFF_PATTERN, error, strerror(error));
+        ALOGE("Disable onoff pattern");
+        hasOnOffPattern = false;
     }
 
-    android::sp<ILight> service = new Light(std::move(backlight), std::move(emotionalBlinkPattern), std::move(emotionalOnOffPattern));
+    android::sp<ILight> service = new Light(hasBacklight, hasBlinkPattern, hasOnOffPattern);
 
     configureRpcThreadpool(1, true);
 
-    android::status_t status = service->registerAsService();
-
-    if (status != android::OK) {
-        ALOGE("Cannot register Light HAL service");
+    status_t status = service->registerAsService();
+    if (status != OK) {
+        ALOGE("Cannot register Light HAL service.");
         return 1;
     }
 
-    ALOGI("Light HAL Ready.");
+    ALOGI("Light HAL service ready.");
+
     joinRpcThreadpool();
-    // Under normal cases, execution will not reach this line.
-    ALOGE("Light HAL failed to join thread pool.");
+
+    ALOGI("Light HAL service failed to join thread pool.");
     return 1;
 }

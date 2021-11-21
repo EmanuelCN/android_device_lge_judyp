@@ -1,13 +1,4 @@
 # Audio
-vendor/etc/acdbdata/v1/General_cal.acdb
-vendor/etc/acdbdata/v1/Global_cal.acdb
-vendor/etc/acdbdata/v1/Bluetooth_cal.acdb
-vendor/etc/acdbdata/v1/Headset_cal.acdb
-vendor/etc/acdbdata/v1/Hdmi_cal.acdb
-vendor/etc/acdbdata/v1/Codec_cal.acdb
-vendor/etc/acdbdata/v1/Speaker_cal.acdb
-vendor/etc/acdbdata/v1/Handset_cal.acdb
-
 vendor/etc/acdbdata/General_cal.acdb
 vendor/etc/acdbdata/Global_cal.acdb
 vendor/etc/acdbdata/Bluetooth_cal.acdb
@@ -19,7 +10,7 @@ vendor/etc/acdbdata/Handset_cal.acdb
 
 # Camera
 vendor/lib/hw/camera.sdm845.so
-vendor/lib/hw/com.qti.chi.override.so|aba5cab718dd20f1abe458fb18426ce717d95345
+vendor/lib/hw/com.qti.chi.override.so
 vendor/lib/sensors.hal.tof.so
 vendor/lib/libAutoContrast.so
 vendor/lib/libSJVideoNR.so
@@ -34,7 +25,6 @@ vendor/lib/libcamxtintlessalgo.so
 vendor/lib/libcinemaeffect.so
 vendor/lib/libfilm_emulation.so
 vendor/lib/libfilm_emulation_symphony.so
-vendor/lib/liblgdnn.so
 vendor/lib/liblghdri.so
 vendor/lib/libmmcamera_faceproc.so
 vendor/lib/libmmcamera_faceproc2.so
@@ -290,13 +280,15 @@ vendor/lib64/libsymphonypower-1.1.4.so
 
 # Fingerprint
 vendor/lib64/hw/fingerprint.sdm845.so
-vendor/lib64/libfpfactory.so
-vendor/lib64/libgf_hal.so
-vendor/lib64/libgf_algo.so
-vendor/lib/hw/fingerprint.sdm845.so
-vendor/lib/libfpfactory.so
-vendor/lib/libgf_hal.so
-vendor/lib/libgf_algo.so
+vendor/usr/idc/uinput-fpc.idc
+vendor/usr/keylayout/uinput-fpc.kl
+-vendor/etc/vintf/manifest/vendor.lge.hardware.biometrics.fingerprint@2.1.xml
+vendor/bin/hw/vendor.lge.hardware.biometrics.fingerprint@2.1-service
+vendor/etc/init/vendor.lge.hardware.biometrics.fingerprint@2.1-service.rc
+lib64/vendor.lge.hardware.biometrics.fingerprint@2.1.so:vendor/lib64/vendor.lge.hardware.biometrics.fingerprint@2.1.so
+vendor/lib64/libQSEEComAPI.so
+vendor/etc/init/hw/init.lge.fingerprints.rc
+vendor/lib/libQSEEComAPI.so
 
 # Firmware (Audio)
 vendor/firmware/Tfa9872.cnt
@@ -340,9 +332,6 @@ vendor/etc/wifi/GLOBAL/bdwlan_ch1.bin
 vendor/etc/wifi/KR_ALL/bdwlan.bin
 vendor/etc/wifi/KR_ALL/bdwlan_ch0.bin
 vendor/etc/wifi/KR_ALL/bdwlan_ch1.bin
-vendor/etc/wifi/NA_CDMA/bdwlan.bin
-vendor/etc/wifi/NA_CDMA/bdwlan_ch0.bin
-vendor/etc/wifi/NA_CDMA/bdwlan_ch1.bin
 vendor/etc/wifi/NA_GSM/bdwlan.bin
 vendor/etc/wifi/NA_GSM/bdwlan_ch0.bin
 vendor/etc/wifi/NA_GSM/bdwlan_ch1.bin
@@ -391,8 +380,7 @@ vendor/etc/qdcm_calib_data_nt35597_cmd_mode_dsi_truly_panel_with_DSC.xml
 vendor/etc/qdcm_calib_data_nt35597_video_mode_dsi_truly_panel_with_DSC.xml
 vendor/etc/qdcm_calib_data_Sharp_4k_cmd_mode_dsc_dsi_panel.xml
 vendor/etc/qdcm_calib_data_Sharp_4k_video_mode_dsc_dsi_panel.xml
-vendor/etc/qdcm_calib_data_SW49409_1440_2880_cmd_mode_dsc_dsi_panel.xml
-vendor/etc/qdcm_calib_data_SW49410_1440_3120_cmd_mode_dsc_dsi_panel.xml
+vendor/etc/qdcm_calib_data_SW43402_cmd_mode_dsc_dsi_panel.xml
 
 # SCVE
 vendor/lib64/libscveBlobDescriptor.so
@@ -442,7 +430,6 @@ vendor/lib/libsns_low_lat_stream_stub.so
 vendor/lib/libsnsapi.so
 vendor/lib/libsnsdiaglog.so
 vendor/lib/libssc.so
-vendor/lib/sensors.sar.so
 vendor/lib/sensors.ssc.so
 vendor/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
@@ -454,7 +441,6 @@ vendor/lib64/libsns_low_lat_stream_stub.so
 vendor/lib64/libsnsapi.so
 vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libssc.so
-vendor/lib64/sensors.sar.so
 vendor/lib64/sensors.ssc.so
 vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 
@@ -466,33 +452,21 @@ vendor/lib/libsensor_lge_cal.so
 # Sensors configs
 vendor/etc/sensors/hals.conf
 vendor/etc/sensors/registry/config/ak991x_dri_0.json
-vendor/etc/sensors/registry/config/apds9160_0_reva.json
-vendor/etc/sensors/registry/config/apds9160_0_revc.json
-vendor/etc/sensors/registry/config/apds9160_0_revd_sub1.json
-vendor/etc/sensors/registry/config/apds9160_0_revd_sub2.json
 vendor/etc/sensors/registry/config/apds9939_0.json
 vendor/etc/sensors/registry/config/bmp285_0.json
 vendor/etc/sensors/registry/config/etc_version
 vendor/etc/sensors/registry/config/icm4x6xx_0.json
-vendor/etc/sensors/registry/config/icm4x6xx_0_reva.json
 vendor/etc/sensors/registry/config/lsm6ds3_0.json
 vendor/etc/sensors/registry/config/lsm6dsm_0.json
 vendor/etc/sensors/registry/config/sdm845_ak991x_0.json
-vendor/etc/sensors/registry/config/sdm845_apds9160_0_reva.json
-vendor/etc/sensors/registry/config/sdm845_apds9160_0_reva_sub1.json
-vendor/etc/sensors/registry/config/sdm845_apds9160_0_reva_sub2.json
 vendor/etc/sensors/registry/config/sdm845_apds9939_0.json
 vendor/etc/sensors/registry/config/sdm845_bmp285_0.json
 vendor/etc/sensors/registry/config/sdm845_icm4x6xx_0.json
-vendor/etc/sensors/registry/config/sdm845_icm4x6xx_0_reva.json
 vendor/etc/sensors/registry/config/sdm845_lsm6dsm_0.json
 vendor/etc/sensors/registry/config/sdm845_power_0.json
 vendor/etc/sensors/registry/config/sdm845_spl06_0.json
-vendor/etc/sensors/registry/config/sdm845_tmx4903.json
 vendor/etc/sensors/registry/config/sensors_list.txt
 vendor/etc/sensors/registry/config/sns_amd.json
-vendor/etc/sensors/registry/config/sns_amd_sw_disabled.json
-vendor/etc/sensors/registry/config/sns_amd_sw_enabled.json
 vendor/etc/sensors/registry/config/sns_basic_gestures.json
 vendor/etc/sensors/registry/config/sns_bring_to_ear.json
 vendor/etc/sensors/registry/config/sns_cm.json
@@ -513,12 +487,9 @@ vendor/etc/sensors/registry/config/sns_rmd.json
 vendor/etc/sensors/registry/config/sns_rotv.json
 vendor/etc/sensors/registry/config/sns_smd.json
 vendor/etc/sensors/registry/config/sns_tilt.json
-vendor/etc/sensors/registry/config/sns_tilt_sw_disabled.json
-vendor/etc/sensors/registry/config/sns_tilt_sw_enabled.json
 vendor/etc/sensors/registry/config/sns_tilt_to_wake.json
 vendor/etc/sensors/registry/config/sns_window_orientation.json
 vendor/etc/sensors/registry/config/spl06_0.json
-vendor/etc/sensors/registry/config/tmx4903.json
 vendor/etc/sensors/registry/registry/sensors_registry
 vendor/etc/sensors/registry/registry/sensors_settings
 vendor/etc/sensors/registry/sns_reg_config

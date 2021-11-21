@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/lge/judyln
+DEVICE_PATH := device/lge/judyp
 
 # inherit from common v30
 -include device/lge/sdm845-common/BoardConfigCommon.mk
@@ -26,8 +26,8 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 TARGET_USES_YCRCB_VENUS_CAMERA_PREVIEW := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE += androidboot.hardware=judyln
-TARGET_KERNEL_CONFIG := lineageos_judyln_defconfig
+BOARD_KERNEL_CMDLINE += androidboot.hardware=judyp
+TARGET_KERNEL_CONFIG := lineageos_judyp_defconfig
 
 # Partitions
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 48708296704
@@ -35,10 +35,10 @@ BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_VENDORIMAGE_PARTITION_SIZE := 1048576000
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.judyln
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.judyp
 TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery/recovery.wipe
 
 #TARGET_PREBUILT_RECOVERY_RAMDISK_CPIO := $(DEVICE_PATH)/ramdisk-recovery.cpio
 
 # inherit from the proprietary version
--include vendor/lge/judyln/BoardConfigVendor.mk
+-include vendor/lge/judyp/BoardConfigVendor.mk

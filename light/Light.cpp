@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017-2018 The LineageOS Project
+ * Copyright (C) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,25 +14,11 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "light"
+#define LOG_TAG "LightService"
 
 #include "Light.h"
-
 #include <log/log.h>
-
-namespace {
-using android::hardware::light::V2_0::LightState;
-
-static uint32_t rgbToBrightness(const LightState& state) {
-    uint32_t color = state.color & 0x00ffffff;
-    return ((77 * ((color >> 16) & 0xff)) + (150 * ((color >> 8) & 0xff)) +
-            (29 * (color & 0xff))) >> 8;
-}
-
-static bool isLit(const LightState& state) {
-    return (state.color & 0x00ffffff);
-}
-} // anonymous namespace
+#include <android-base/stringprintf.h>
 
 namespace android {
 namespace hardware {
@@ -40,75 +26,33 @@ namespace light {
 namespace V2_0 {
 namespace implementation {
 
-Light::Light(std::ofstream&& backlight, std::ofstream&& emotionalBlinkPattern, std::ofstream&& emotionalOnOffPattern) :
-    mBacklight(std::move(backlight)),
-    mEmotionalBlinkPath(std::move(emotionalBlinkPattern)),
-    mEmotionalOnOffPath(std::move(emotionalOnOffPattern)) {
-    auto attnFn(std::bind(&Light::setAttentionLight, this, std::placeholders::_1));
-    auto backlightFn(std::bind(&Light::setBacklight, this, std::placeholders::_1));
-    auto batteryFn(std::bind(&Light::setBatteryLight, this, std::placeholders::_1));
-    auto notifFn(std::bind(&Light::setNotificationLight, this, std::placeholders::_1));
-    mLights.emplace(std::make_pair(Type::ATTENTION, attnFn));
-    mLights.emplace(std::make_pair(Type::BACKLIGHT, backlightFn));
-    mLights.emplace(std::make_pair(Type::BATTERY, batteryFn));
-    mLights.emplace(std::make_pair(Type::NOTIFICATIONS, notifFn));
+/*
+ * Write value to path and close file.
+ */
+template <typename T>
+static void set(const std::string& path, const T& value) {
+    std::ofstream file(path);
+    file << value;
 }
 
-// Methods from ::android::hardware::light::V2_0::ILight follow.
-Return<Status> Light::setLight(Type type, const LightState& state) {
-    auto it = mLights.find(type);
-    if (it == mLights.end()) {
-        return Status::LIGHT_NOT_SUPPORTED;
-    }
-    it->second(state);
-    return Status::SUCCESS;
+template <typename T>
+static T get(const std::string& path, const T& def) {
+    std::ifstream file(path);
+    T result;
+
+    file >> result;
+    return file.fail() ? def : result;
 }
 
-Return<void> Light::getSupportedTypes(getSupportedTypes_cb _hidl_cb) {
-    std::vector<Type> types;
-    for (auto const& light : mLights) {
-        types.push_back(light.first);
-    }
-    _hidl_cb(types);
-    return Void();
+static int rgbToBrightness(const LightState& state) {
+    int color = state.color & 0x00ffffff;
+    return ((77 * ((color >> 16) & 0x00ff))
+            + (150 * ((color >> 8) & 0x00ff))
+            + (29 * (color & 0x00ff))) >> 8;
 }
 
-void Light::setAttentionLight(const LightState& state) {
-    std::lock_guard<std::mutex> lock(mLock);
-    mAttentionState = state;
-    checkLightStateLocked();
-}
-
-void Light::setBacklight(const LightState& state) {
-    std::lock_guard<std::mutex> lock(mLock);
-    uint32_t brightness = rgbToBrightness(state) * 16;
-    mBacklight << brightness << std::endl;
-}
-
-void Light::setBatteryLight(const LightState& state) {
-    std::lock_guard<std::mutex> lock(mLock);
-    mBatteryState = state;
-    checkLightStateLocked();
-}
-
-void Light::setNotificationLight(const LightState& state) {
-    std::lock_guard<std::mutex> lock(mLock);
-    mNotificationState = state;
-    checkLightStateLocked();
-}
-
-void Light::checkLightStateLocked() {
-    if (isLit(mNotificationState)) {
-        setLightLocked(mNotificationState);
-    } else if (isLit(mAttentionState)) {
-        setLightLocked(mAttentionState);
-    } else if (isLit(mBatteryState)) {
-        setLightLocked(mBatteryState);
-    } else {
-        /* Lights off */
-        mEmotionalBlinkPath << "0x0,-1,-1" << std::endl;
-        mEmotionalOnOffPath << "0x0" << std::endl;
-    }
+static bool isLit(const LightState& state) {
+    return (state.color & 0x00ffffff);
 }
 
 void Light::setLightLocked(const LightState& state) {
@@ -136,13 +80,108 @@ void Light::setLightLocked(const LightState& state) {
     if (offMS <= 0) {
         sprintf(pattern,"0x%06x", color);
         ALOGD("%s: Using onoff pattern: inColor=0x%06x\n", __func__, color);
-        mEmotionalOnOffPath << pattern << std::endl;
+        set(LED ONOFF_PATTERN, pattern);
     } else {
         sprintf(pattern,"0x%06x,%d,%d", color, onMS, offMS);
         ALOGD("%s: Using blink pattern: inColor=0x%06x delay_on=%d, delay_off=%d\n",
               __func__, color, onMS, offMS);
-        mEmotionalBlinkPath << pattern << std::endl;
+        set(LED BLINK_PATTERN, pattern);
     }
+}
+
+void Light::checkLightStateLocked() {
+    if (isLit(mNotificationState)) {
+        setLightLocked(mNotificationState);
+    } else if (isLit(mAttentionState)) {
+        setLightLocked(mAttentionState);
+    } else if (isLit(mBatteryState)) {
+        setLightLocked(mBatteryState);
+    } else {
+        /* Lights off */
+        set(LED BLINK_PATTERN, "0x0,-1,-1");
+        set(LED ONOFF_PATTERN, "0x0");
+    }
+}
+
+void Light::handleAttention(const LightState& state) {
+    mAttentionState = state;
+    checkLightStateLocked();
+}
+
+void Light::handleBacklight(const LightState& state) {
+    int brightness, brightnessEx;
+    int sentBrightness = rgbToBrightness(state);
+    if(sentBrightness < 35) {
+        brightness = sentBrightness * 2;
+        brightnessEx = sentBrightness * 2;
+    } else {
+        brightness = sentBrightness * mMaxBrightness / 255;
+        brightnessEx = sentBrightness * mMaxBrightnessEx / 255;
+    }
+    set(BL BRIGHTNESS, brightness);
+    set(BL_EX BRIGHTNESS, brightnessEx);
+}
+
+void Light::handleBattery(const LightState& state) {
+    mBatteryState = state;
+    checkLightStateLocked();
+}
+
+void Light::handleNotifications(const LightState& state) {
+    mNotificationState = state;
+    checkLightStateLocked();
+}
+
+Light::Light(bool hasBacklight, bool hasBlinkPattern, bool hasOnOffPattern) {
+    auto attnFn(std::bind(&Light::handleAttention, this, std::placeholders::_1));
+    auto backlightFn(std::bind(&Light::handleBacklight, this, std::placeholders::_1));
+    auto batteryFn(std::bind(&Light::handleBattery, this, std::placeholders::_1));
+    auto notifFn(std::bind(&Light::handleNotifications, this, std::placeholders::_1));
+    
+    if(hasBacklight)
+        mLights.emplace(Type::BACKLIGHT, backlightFn);
+    
+    if(hasBlinkPattern && hasOnOffPattern) {
+        mLights.emplace(Type::ATTENTION, attnFn);
+        mLights.emplace(Type::BATTERY, batteryFn);
+        mLights.emplace(Type::NOTIFICATIONS, notifFn);
+    }
+    
+    mMaxBrightness = get(BL MAX_BRIGHTNESS, -1);
+    mMaxBrightnessEx = get(BL_EX MAX_BRIGHTNESS, -1);
+    if (mMaxBrightness < 0) {
+        mMaxBrightness = 255;
+    }
+    if (mMaxBrightnessEx < 0) {
+        mMaxBrightnessEx = 255;
+    }
+}
+
+Return<Status> Light::setLight(Type type, const LightState& state) {
+    auto it = mLights.find(type);
+
+    if (it == mLights.end()) {
+        return Status::LIGHT_NOT_SUPPORTED;
+    }
+
+    /*
+     * Lock global mutex until light state is updated.
+     */
+    std::lock_guard<std::mutex> lock(globalLock);
+
+    it->second(state);
+
+    return Status::SUCCESS;
+}
+
+Return<void> Light::getSupportedTypes(getSupportedTypes_cb _hidl_cb) {
+    std::vector<Type> types;
+
+    for (auto const& light : mLights) types.push_back(light.first);
+
+    _hidl_cb(types);
+
+    return Void();
 }
 
 }  // namespace implementation
