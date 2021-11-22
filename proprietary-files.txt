@@ -289,6 +289,8 @@ lib64/vendor.lge.hardware.biometrics.fingerprint@2.1.so:vendor/lib64/vendor.lge.
 vendor/lib64/libQSEEComAPI.so
 vendor/etc/init/hw/init.lge.fingerprints.rc
 vendor/lib/libQSEEComAPI.so
+system/lib/android.hardware.biometrics.fingerprint@2.1.so
+system/lib64/android.hardware.biometrics.fingerprint@2.1.so
 
 # Firmware (Audio)
 vendor/firmware/Tfa9872.cnt
