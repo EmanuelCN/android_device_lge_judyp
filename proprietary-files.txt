@@ -201,7 +201,6 @@ vendor/lib/liblgftmitem_vendor.so
 vendor/lib/liboemcrypto.so
 vendor/lib/libpvr.so
 vendor/lib/librmp.so
-vendor/lib/libsi.so
 vendor/lib/libunified_sysfs_vendor.so
 vendor/lib/libwvoemprov.so
 vendor/lib/vendor.lge.hardware.filehandle@1.0.so
@@ -218,7 +217,8 @@ vendor/lib/vendor.qti.hardware.qseecom@1.0.so
 
 # DSP
 vendor/bin/chre
-vendor/lib/libfastcrc.so
+vendor/lib/libscveFaceLandmarks.so
+vendor/lib/libscveFaceRecognition.so
 vendor/lib/libsymphony-1.1.4.so
 vendor/lib/libsymphonypower-1.1.4.so
 vendor/lib/rfsa/adsp/activity.so
@@ -226,7 +226,6 @@ vendor/lib/rfsa/adsp/AlacDecoderModule.so.1
 vendor/lib/rfsa/adsp/ApeDecoderModule.so.1
 vendor/lib/rfsa/adsp/AudioContextDetection.so.1
 vendor/lib/rfsa/adsp/AudioSphereModule.so.1
-vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so
 vendor/lib/rfsa/adsp/libscveObjectSegmentation_skel.so
 vendor/lib/rfsa/adsp/cellinfo_tools.so
 vendor/lib/rfsa/adsp/CFCMModule.so.1
@@ -238,7 +237,6 @@ vendor/lib/rfsa/adsp/chre_drv_wifi.so
 vendor/lib/rfsa/adsp/chre_pal.so
 vendor/lib/rfsa/adsp/EtsiAmrWbPlusDecModule.so.1
 vendor/lib/rfsa/adsp/EtsiEaacPlusEncAndCmnModule.so.1
-vendor/lib/rfsa/adsp/fastrpc_shell_0
 vendor/lib/rfsa/adsp/FlacDecoderModule.so.1
 vendor/lib/rfsa/adsp/fluence_voiceplus_module.so.1
 vendor/lib/rfsa/adsp/geofence.so
@@ -255,11 +253,9 @@ vendor/lib/rfsa/adsp/libdspCV_skel.so
 vendor/lib/rfsa/adsp/libdsp_streamer_add_constant.so
 vendor/lib/rfsa/adsp/libdsp_streamer_binning.so
 vendor/lib/rfsa/adsp/libdsp_streamer_skel.so
-vendor/lib/rfsa/adsp/libfastcvadsp.so
-vendor/lib/rfsa/adsp/libfastcvdsp_skel.so
-vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_skel.so
-vendor/lib/rfsa/adsp/libhexagon_nn_skel.so
 vendor/lib/rfsa/adsp/libscveT2T_skel.so
+vendor/lib/rfsa/adsp/fastrpc_shell_0
+vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_skel.so
 vendor/lib/rfsa/adsp/libsns_device_mode_skel.so
 vendor/lib/rfsa/adsp/libsns_low_lat_stream_skel.so
 vendor/lib/rfsa/adsp/libstabilitydomain_skel.so
@@ -277,6 +273,8 @@ vendor/lib/rfsa/adsp/WmaProDecoderModule.so.1
 vendor/lib/rfsa/adsp/WmaStdDecoderModule.so.1
 vendor/lib64/libsymphony-1.1.4.so
 vendor/lib64/libsymphonypower-1.1.4.so
+vendor/lib64/libscveFaceLandmarks.so
+vendor/lib64/libscveFaceRecognition.so
 
 # Fingerprint
 vendor/lib64/hw/fingerprint.sdm845.so
@@ -363,14 +361,6 @@ vendor/lib/libkeymasterprovision.so
 vendor/lib/libkeymasterutils.so
 vendor/lib/libqtikeymaster4.so
 
-# Peripheral manager
-vendor/bin/pm-proxy
-vendor/bin/pm-service
-vendor/lib64/libperipheral_client.so
-vendor/lib64/libspcom.so
-vendor/lib/libperipheral_client.so
-vendor/lib/libspcom.so
-
 # QDCM calibration data
 vendor/etc/qdcm_calib_data_Dual_nt35597_cmd_mode_dsi_truly_panel_without_DSC.xml
 vendor/etc/qdcm_calib_data_Dual_nt35597_video_mode_dsi_truly_panel_without_DSC.xml
@@ -381,39 +371,6 @@ vendor/etc/qdcm_calib_data_nt35597_video_mode_dsi_truly_panel_with_DSC.xml
 vendor/etc/qdcm_calib_data_Sharp_4k_cmd_mode_dsc_dsi_panel.xml
 vendor/etc/qdcm_calib_data_Sharp_4k_video_mode_dsc_dsi_panel.xml
 vendor/etc/qdcm_calib_data_SW43402_cmd_mode_dsc_dsi_panel.xml
-
-# SCVE
-vendor/lib64/libscveBlobDescriptor.so
-vendor/lib64/libscveBlobDescriptor_stub.so
-vendor/lib64/libscveCommon.so
-vendor/lib64/libscveCommon_stub.so
-vendor/lib64/libscveFaceLandmarks.so
-vendor/lib64/libscveFaceRecognition.so
-vendor/lib64/libscveObjectSegmentation.so
-vendor/lib64/libscveObjectSegmentation_stub.so
-vendor/lib64/libscveObjectTracker.so
-vendor/lib64/libscveObjectTracker_stub.so
-vendor/lib64/libscvePanorama_lite.so
-vendor/lib64/libscvePanorama.so
-vendor/lib64/libscveScan3D.so
-vendor/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so
-vendor/lib64/vendor.qti.hardware.scve.panorama@1.0.so
-vendor/lib/libscveBlobDescriptor.so
-vendor/lib/libscveBlobDescriptor_stub.so
-vendor/lib/libscveCommon.so
-vendor/lib/libscveCommon_stub.so
-vendor/lib/libscveFaceLandmarks.so
-vendor/lib/libscveFaceRecognition.so
-vendor/lib/libscveObjectSegmentation.so
-vendor/lib/libscveObjectSegmentation_stub.so
-vendor/lib/libscveObjectTracker.so
-vendor/lib/libscveObjectTracker_stub.so
-vendor/lib/libscvePanorama_lite.so
-vendor/lib/libscvePanorama.so
-vendor/lib/libscveScan3D.so
-vendor/lib/vendor.qti.hardware.scve.objecttracker@1.0.so
-vendor/lib/vendor.qti.hardware.scve.panorama@1.0.so
-
 
 # Sensors
 vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service
