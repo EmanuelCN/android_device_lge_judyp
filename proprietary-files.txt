@@ -257,6 +257,8 @@ vendor/lib/rfsa/adsp/VoiceWakeup_V2_Module.so.1
 vendor/lib/rfsa/adsp/VorbisDecoderModule.so.1
 vendor/lib/rfsa/adsp/WmaProDecoderModule.so.1
 vendor/lib/rfsa/adsp/WmaStdDecoderModule.so.1
+vendor/lib/libssc_default_listener.so
+vendor/lib64/libssc_default_listener.so
 vendor/lib64/libsymphony-1.1.4.so
 vendor/lib64/libsymphonypower-1.1.4.so
 
