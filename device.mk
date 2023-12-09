@@ -41,7 +41,6 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/audio/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
     $(DEVICE_PATH)/audio/mixer_paths_tavil.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_tavil.xml
 
-
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1 \
@@ -80,10 +79,6 @@ PRODUCT_PACKAGES += \
     ls_nq_client \
     se_nq_extn_client \
     libchrome.vendor
-
-# Qti common
-TARGET_COMMON_QTI_COMPONENTS := \
-    perf
 
 # common judy (sdm845)
 $(call inherit-product, device/lge/sdm845-common/sdm845.mk)
