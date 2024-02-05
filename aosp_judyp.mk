@@ -53,7 +53,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE=judyp \
     PRODUCT_NAME=judyp_lao_com \
 
-# DotOs
+BUILD_FINGERPRINT := "lge/judyp_lao_com/judyp:10/QKQ1.191222.002/2127217366356:user/release-keys"
+
+# Boot Animation
 TARGET_BOOT_ANIMATION_RES := 1440
 
 # Charging Animation
