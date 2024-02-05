@@ -16,6 +16,9 @@
 
 DEVICE_PATH := device/lge/judyp
 
+# inherit from the proprietary version
+-include vendor/lge/judyp/BoardConfigVendor.mk
+
 # inherit from common v30
 -include device/lge/sdm845-common/BoardConfigCommon.mk
 
@@ -39,6 +42,3 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.judyp
 TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery/recovery.wipe
 
 #TARGET_PREBUILT_RECOVERY_RAMDISK_CPIO := $(DEVICE_PATH)/ramdisk-recovery.cpio
-
-# inherit from the proprietary version
--include vendor/lge/judyp/BoardConfigVendor.mk
